@@ -41,6 +41,10 @@ https://localhost:5001/swagger
 
 ## 📦 Instalación
 
+ - Requisitos
+    * [Docker](https://www.docker.com/) instalado
+    * [Git](https://git-scm.com/) instalado
+
 1. Clona el repositorio:
 
 ```bash
@@ -48,5 +52,8 @@ git clone https://github.com/ManuelSPersonal/emotionsAPI.git
 cd emotionsAPI
 ```
 
-2.
+2.Construir e iniciar los contenedores
+```
+docker-compose up --build   //Esto construirá la imagen y levantará los servicios (API, DB, etc.)
+```
 
