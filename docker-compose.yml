@@ -1,0 +1,27 @@
+
+networks:
+  mynetworkapi:
+
+services:
+  #Contenedor sql
+  sqlserverdocker:
+   container_name: sql-server-docker
+   image: mcr.microsoft.com/mssql/server:2022-latest
+   ports:
+   - 8006:1433
+   environment:
+   - ACCEPT_EULA=Y
+   - MSSQL_SA_PASSWORD=YourStrong!Passw0rd
+   networks:
+   - mynetworkapi
+    
+  #Contenedor api
+  emotionsapi:
+    image: ${DOCKER_REGISTRY-}emotionsapi
+    build:
+      context: .
+      dockerfile: emotionsAPI/Dockerfile
+    networks:
+    - mynetworkapi
+    ports:
+    - 5001:8081
